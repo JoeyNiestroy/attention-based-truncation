@@ -19,5 +19,12 @@ There's also no exceptions/error handling but I figure if anybody wants to test 
 Below is an example of a truncated text using this method:
 ![Example_trunc](https://github.com/JoeyNiestroy/attention-based-truncation/assets/106636917/cdee5f1a-7c3c-4659-91fb-ce587bdde1ed)
 
+I've attached all my code to this repo
+
+GPT.py - The python script to train my QA model
+
+LVIT.ipynb (Least Valuable Information Trunction, try and say that three times fast) - Jupyter file included from readme
+
+
 ## Further work ##
 I'm currenlty working on testing the method out on a larger training set both in it's deployment during training as well as just inference. If anybody with more compute power wants to test it out please let me know how it goes. You can email me at niestroyjoe@gmail.com or reach out where ever. 
