@@ -23,7 +23,7 @@ I've attached all my code to this repo
 
 GPT.py - The python script to train my QA model
 
-LVIT.ipynb (Least Valuable Information Trunction, try and say that three times fast) - Jupyter file included from readme
+LVIT.ipynb - Jupyter file included from readme, you can import base models to test functions however data is too large to attach
 
 
 ## Further work ##
