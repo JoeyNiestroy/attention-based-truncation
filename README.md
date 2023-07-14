@@ -27,4 +27,4 @@ LVIT.ipynb - Jupyter file included from readme, you can import base models to te
 
 
 ## Further work ##
-I'm currenlty working on testing the method out on a larger training set both in it's deployment during training. As well as testing it's effectiviness during inference by comparing the outputs of tradtional truncation and attention truncation using BERT for a similarty model. If anybody with more compute power wants to test it out please let me know how it goes. You can email me at niestroyjoe@gmail.com or reach out where ever. 
+I'm currenlty working on testing the method out on a larger training set both in it's deployment during training. As well as testing it's effectiviness during inference by comparing the outputs of tradtional truncation and attention truncation using BERT for a similarty model. Also testing for other downstream tasks (sentiment,classification,etc). If anybody with more compute power wants to test it out please let me know how it goes. You can email me at niestroyjoe@gmail.com or reach out where ever. 
