@@ -19,7 +19,7 @@ There's also no exceptions/error handling but I figure if anybody wants to test 
 Below is an example of a truncated text using this method:
 ![Example_trunc](https://github.com/JoeyNiestroy/attention-based-truncation/assets/106636917/cdee5f1a-7c3c-4659-91fb-ce587bdde1ed)
 
-I've attached all my code to this repo
+I've attached all my code to this repo. The training data was top 25k python questions and answers I webscaped and processed from StackoverFlow. I would open source dataset, but I did not follow guidelines for proper open source license so if someone is interested in it just let me know. 
 
 GPT.py - The python script to train my QA model
 
