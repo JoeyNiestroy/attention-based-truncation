@@ -25,10 +25,6 @@ GPT.py - The python script to train my QA model
 
 LVIT.ipynb - Jupyter file included from readme, you can import base models to test functions however data is too large to attach 
 
-
-## Further work ##
-I'm currenlty working on testing the method out on a larger training set both in it's deployment during training. As well as testing it's effectiviness during inference by comparing the outputs of tradtional truncation and attention truncation using BERT for a similarty model. Also testing for other downstream tasks (sentiment,classification,etc). I'd also like to explore looking at the attention scores from only the first layers, 1-2, 1-3, etc. Obvisouly past the first layer the embeddings passed forward may not truly 'represent' their original tokens. If anybody with more compute power wants to test it out please let me know how it goes. You can email me at niestroyjoe@gmail.com or reach out where ever. 
-
 # Experiment #
 I will create a seperate repo for the experiment when it is complete but it will be here for now. **This experiement is currently in progress. Results will be updated**
 
