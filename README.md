@@ -25,49 +25,50 @@ GPT.py - The python script to train my QA model
 
 LVIT.ipynb - Jupyter file included from readme, you can import base models to test functions however data is too large to attach 
 
-# Experiment #
-I will create a  separate  repo for the experiment when it is complete but it will be here for now. **This experiement is currently in progress. Results will be updated**
+# Evaluating the Impact of Attention Truncation on Transformer Models: A Comparative Study
 
-## Overview ##
-I determined the best transformer models to intially test the effectivness of Attention Trunction would be bidirectional style models like BERT. So base BERT uncased will be the starting model throughout the extent of this section of the experiemnt. No config changes were made to BERT. The tokenizer used was of course the BERT tokenizer
+## Abstract
+This study explores the effectiveness of attention truncation in transformer-based models, particularly focusing on the bidirectional architecture exemplified by BERT (Bidirectional Encoder Representations from Transformers). We conduct an experiment comparing three approaches: a control model with no truncation, traditional right-side truncation, and an innovative attention-based truncation method. The experiment is conducted using the 20NewsGroups dataset. Our preliminary results demonstrate that attention truncation significantly outperforms traditional right-side truncation and closely approaches the performance of the non-truncated model.
 
-## Experiment Setup
+## Introduction
+Transformer models, particularly those based on bidirectional architectures like BERT, have revolutionized the field of natural language processing. However, these models often face challenges with lengthy input sequences. This study investigates the potential of attention truncation as a technique to handle such sequences effectively, aiming to maintain high model performance while managing computational constraints.
 
-### Dataset
-The first dataset used was 20NewsGroups fixed. The full dataset is avilable on hugging face for download
+## Experiment Design
+
+### Data Source
+The experiment utilizes the 20NewsGroups dataset, a widely recognized benchmark in text classification tasks. This dataset is publicly available for download on the Hugging Face platform.
 
 ### Preprocessing
-Roughly 20% of the intital traninig/dev dataset was removed as it's encoded length was > 512 and so did not fit the expirmental controls (See control model below) 
+Approximately 20% of the initial training and development set, which had encoded lengths exceeding 512 tokens, was excluded to maintain consistency with our experimental controls. The dataset was used as-is without further preprocessing to avoid introducing biases. The original test/train split provided in the dataset was retained, with plans to implement 5-fold cross-validation in future iterations of the study.
 
-There was no preprocessing done to the text as the data was already fairly proccessed at download and did not want to introduce any new biases
+### Methodology
 
-The original test/train split provided in the dataset was used for the experiment, however when I free time I will set up 5 fold CV 
+#### Control Model
+The control model, employing a BERT base uncased architecture without any configuration changes, processed data where the tokenized length was 512 or less. This model underwent training for two epochs. The complete hyperparameters are detailed in the accompanying code repository.
 
-## Methodology
+#### Traditional Truncation Model
+For this model, traditional right-side truncation was employed, discarding 50% of the tokens from each sample. For example: a sample with a tokenized length of 100 was truncated to 50 or a sample with a tokenized length of 50 was truncated to 25. Training parameters were kept consistent with the control model for a fair comparison.
 
-### Control Model
-For the control model all training data was not truncated, or to say all data was <= 512 length when tokenized. The model was trained for 2 epochs, full hyperparameters can be found in code.
+#### Attention Truncation Model
+This model initially mirrored the traditional truncation approach during its first epoch. Subsequently, an attention dictionary was created for the full token vocabulary, and the second epoch employed attention-based truncation for token removal. All other training parameters were aligned with those of the control model.
 
-### Traditional Truncation Model
-Traditional right side truncation was used for this group and 50% of tokens were removed from each sample.
+## Results and Discussion
 
-Ex: A sample of tokenized length 100 would be truncated to 50, A sample of length 60 would be truncated to length 30
-
-This model was also trained for 2 epochs with matching hyperparameters to control group
-
-### Attention Truncation Model
-In this model the first epoch is the same as the traditional truncation group, however after this I used my code provided above to create an attention dictonary for the full token vocabulary. Then for the second epoch the 50% token removal was done using Attention truncation. 
-
-All other hyperparameters were same as control group
-
-## Model Performance Comparison
+### Model Performance
 
 | Model                  | Description                 | Accuracy (%)  |
 |------------------------|-----------------------------|---------------|
-| Control Model          | No truncation applied       | 74%  |
-| Traditional Truncation | 50% Right side      | 66%   |
-| Attention Truncation       | Attention Based Truncation | 71%   |
+| Control Model          | No truncation applied       | 74%           |
+| Traditional Truncation | 50% Right-side Truncation   | 66%           |
+| Attention Truncation   | Attention-Based Truncation  | 71%           |
 
-As you can clearly see above attention truncation significantly outperforms right side truncation and is only **3%** loss in performance from no truncation at all
+The results indicate that attention truncation outperforms traditional right-side truncation by a significant margin, showcasing only a 3% decrease in performance compared to the non-truncated control model. This suggests that attention truncation could be a viable alternative in scenarios where input sequence length exceeds model constraints.
+
+## Conclusion
+This study presents a novel approach to managing long input sequences in transformer models through attention truncation. The findings highlight the potential of this method in maintaining model efficacy while addressing the limitations posed by lengthy inputs. Future work will focus on expanding the dataset, employing cross-validation techniques, and further optimizing the attention truncation algorithm for broader applicability in natural language processing tasks.
+
+---
+
+*Note: This experiment is currently ongoing, and results will be updated accordingly. The repository for this experiment will be made available upon completion.*
 
 
