@@ -68,6 +68,6 @@ All other hyperparameters were same as control group
 | Traditional Truncation | 50% Right side      | 66%   |
 | Attention Truncation       | Attention Based Truncation | 71%   |
 
-As you can clearly see above attention truncatio signficatly outprefroms right side truncation and is only **3%** loss in performance from no truncation at all
+As you can clearly see above attention truncation significantly outperforms right side truncation and is only **3%** loss in performance from no truncation at all
 
 
