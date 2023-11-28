@@ -26,7 +26,7 @@ GPT.py - The python script to train my QA model
 LVIT.ipynb - Jupyter file included from readme, you can import base models to test functions however data is too large to attach 
 
 # Experiment #
-I will create a seperate repo for the experiment when it is complete but it will be here for now. **This experiement is currently in progress. Results will be updated**
+I will create a  separate  repo for the experiment when it is complete but it will be here for now. **This experiement is currently in progress. Results will be updated**
 
 ## Overview ##
 I determined the best transformer models to intially test the effectivness of Attention Trunction would be bidirectional style models like BERT. So base BERT uncased will be the starting model throughout the extent of this section of the experiemnt. No config changes were made to BERT. The tokenizer used was of course the BERT tokenizer
