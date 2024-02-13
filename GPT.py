@@ -26,22 +26,15 @@ tokenizer.pad_token = '[PAD]'
 model.resize_token_embeddings(len(tokenizer))
 
 input_texts = list(training_data["Questions"])[0:20000]
-target_texts = list(training_data["Answers"])[0:20000]
 
 for idx,sent in enumerate(input_texts):
     input_texts[idx] = sent+"<EndofQ>"
 
-for idx,sent in enumerate(target_texts):
-    target_texts[idx] = sent+"<EndofA>"
-
 
 # Tokenize the input and target texts
 max_length = 1024
-tokenizer.padding_side = "left"
-input_encodings = tokenizer(input_texts, truncation=True, padding='max_length', max_length=max_length, return_tensors='tf')
 tokenizer.padding_side = "right"
-target_encodings = tokenizer(target_texts, truncation=True, padding='max_length', max_length=max_length, return_tensors='tf')
-
+input_encodings = tokenizer(input_texts, truncation=True, padding='max_length', max_length=max_length, return_tensors='tf')
 
 # Convert the input and target encodings to TensorFlow datasets
 dataset = tf.data.Dataset.from_tensor_slices((dict(input_encodings), dict(target_encodings)))
@@ -69,8 +62,8 @@ for epoch in range(num_epochs):
     for batch in dataset.shuffle(len(dataset)).batch(batch_size):
         with tf.GradientTape() as tape:
             input_ids = batch[0]['input_ids']
-            attention_mask = batch[0]['attention_mask']
-            labels = batch[1]['input_ids']
+            attention_mask = batch[1]['attention_mask']
+            labels = batch[2]['input_ids']
             
             outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
             logits = outputs.logits
