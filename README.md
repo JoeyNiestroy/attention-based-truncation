@@ -1,6 +1,8 @@
 # attention-based-truncation
 A text input truncation method based on average attention scores from transformer based LLM
 
+### See Study at Bottom ###  
+
 # Overview and Motivations #
 When working on finetuning a GPT-2 model for python Q&A, I ran into two issues. Out-of-Memory errors and poor model preformance on longer prompts. Even pushing the max length as far as I could with batch_sizes of 1 and accumulating gradients there was little improvments. As of right now more advanced truncation algos are unavailable through hugging face. So I decided to write my own truncation function based on the average attention scores assigned to each token by my fine-tuned model. My hypothesis being if I removed tokens based on their relative importance to the model I can retain more information in smaller prompts/sequences and inference would have a smaller memory load or retain more information in longer promts. Since we're not all OpenAI we can't push max input lengths to 16k. Also with the movement towards smaller more comp and memory efficient LLMs (Orca, alpaca, etc) it makes sense to push for that as well in our model inputs.
 
