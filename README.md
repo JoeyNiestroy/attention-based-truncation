@@ -62,7 +62,7 @@ This model initially mirrored the traditional truncation approach during its fir
 |------------------------|-----------------------------|---------------|
 | Control Model          | No truncation applied       | 74%           |
 | Traditional Truncation | 50% Right-side Truncation   | 66%           |
-| Attention Truncation   | Attention-Based Truncation  | 71%           |
+| Attention Truncation   | Attention-Based Truncation  | **71%**          |
 
 The results indicate that attention truncation outperforms traditional right-side truncation by a significant margin, showcasing only a 3% decrease in performance compared to the non-truncated control model. This suggests that attention truncation could be a viable alternative in scenarios where input sequence length exceeds model constraints.
 
